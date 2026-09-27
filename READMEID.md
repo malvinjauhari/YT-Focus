@@ -24,7 +24,7 @@
 
 Ekstensi browser yang membuat dua jebakan perhatian terbesar YouTube — **kolom komentar** dan **rel rekomendasi** — menjadi kabur, sehingga videonya jadi satu-satunya hal di layar. Tanpa akun, tanpa pelacakan, tanpa proses build.
 
-**Repositori:** [`malvinjauhari/No-More-Distract`](https://github.com/malvinjauhari/No-More-Distract)
+**Repositori:** [`malvinjauhari/YT-Focus`](https://github.com/malvinjauhari/YT-Focus)
 
 ---
 
@@ -74,7 +74,7 @@ YTFocus dimuat sebagai ekstensi *unpacked* — tidak ada proses build dan tidak 
 **Kebutuhan:** Chrome, Edge, atau Brave **88+** (atau browser berbasis Chromium lain yang mendukung Manifest V3).
 
 ```bash
-git clone https://github.com/malvinjauhari/No-More-Distract.git
+git clone https://github.com/malvinjauhari/YT-Focus.git
 ```
 
 Kemudian:
@@ -82,12 +82,12 @@ Kemudian:
 1. Buka `chrome://extensions` di browser Anda.
 2. Aktifkan **Mode Pengembang** (toggle di kanan atas).
 3. Klik **Load unpacked**.
-4. Pilih folder hasil clone (`No-More-Distract`).
+4. Pilih folder hasil clone (`YT-Focus`).
 5. **Muat ulang** tab YouTube yang sudah terbuka.
 
 Selesai. Pasang YTFocus di toolbar, klik ikonnya, lalu atur sesuai kebutuhan.
 
-> **Catatan:** Mode Pengembang harus tetap aktif selama ekstensi dimuat secara *unpacked*. Kalau Anda memang memakai YTFocus setiap hari, sampaikan di [Discussions](https://github.com/malvinjauhari/No-More-Distract/discussions) — rilis ke Chrome Web Store akan menghilangkan syarat ini.
+> **Catatan:** Mode Pengembang harus tetap aktif selama ekstensi dimuat secara *unpacked*. Kalau Anda memang memakai YTFocus setiap hari, [buka issue](https://github.com/malvinjauhari/YT-Focus/issues) dan minta rilis ke Chrome Web Store — rilis tersebut akan menghilangkan syarat ini.
 
 ## Cara Kerja
 
@@ -138,7 +138,7 @@ Saat popup dibuka, ia mengirim `PING` ke tab aktif. Jika tidak ada content scrip
 ## Struktur Proyek
 
 ```
-No-More-Distract/
+YT-Focus/
 ├── manifest.json          # Manifest V3: izin akses, registrasi content script, ikon
 ├── content.js             # Berjalan di setiap tab YouTube — menyuntikkan CSS, menyalakan class, menyinkronkan pengaturan
 ├── popup.html             # Markup popup toolbar (dua toggle)
@@ -192,8 +192,8 @@ Tersimpan di `chrome.storage.local` dengan kunci berikut. Keduanya bernilai `tru
 Tidak ada package manager, bundler, maupun framework. Kode yang Anda baca adalah kode yang langsung dijalankan browser.
 
 ```bash
-git clone https://github.com/malvinjauhari/No-More-Distract.git
-cd No-More-Distract
+git clone https://github.com/malvinjauhari/YT-Focus.git
+cd YT-Focus
 ```
 
 Siklus edit–refresh Anda:
@@ -211,7 +211,7 @@ Lihat [CONTRIBUTING.md](./CONTRIBUTING.md) untuk konvensi commit, alur PR, dan p
 Pastikan toggle di popup dalam keadaan aktif. Jika baru memasang YTFocus, lakukan hard refresh pada tab YouTube — tab yang dibuka sebelum pemasangan masih berjalan dengan halaman lama. Jika masih tidak jalan, buka DevTools → Console dan pastikan elemen `<html>` memiliki class `ytf-blur-comments`.
 
 **Efek blur hilang setelah navigasi.**
-YouTube kadang menulis ulang class pada elemen root. `MutationObserver` YTFocus biasanya memperbaikinya dalam satu frame — jika halaman tertentu masih gagal, [buka issue](https://github.com/malvinjauhari/No-More-Distract/issues) dengan URL halaman tersebut.
+YouTube kadang menulis ulang class pada elemen root. `MutationObserver` YTFocus biasanya memperbaikinya dalam satu frame — jika halaman tertentu masih gagal, [buka issue](https://github.com/malvinjauhari/YT-Focus/issues) dengan URL halaman tersebut.
 
 **Komentar masih bisa diklik / diseleksi.**
 Seharusnya tidak — CSS menetapkan `pointer-events: none` dan `user-select: none`. Jika suatu selector tidak lagi cocok, kemungkinan besar YouTube telah merombak desainnya. Kontribusi untuk memperbaikinya sangat diterima.

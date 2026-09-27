@@ -19,7 +19,7 @@ Thanks for taking the time to contribute. YTFocus is deliberately small — abou
 
 ## Ways to Contribute
 
-**The highest-value contribution right now** is fixing selectors after a YouTube redesign. YouTube ships UI changes constantly, and when a selector stops matching, the blur silently stops applying. If you notice that, [open an issue](https://github.com/malvinjauhari/No-More-Distract/issues) with the page URL — even if you don't intend to fix it yourself.
+**The highest-value contribution right now** is fixing selectors after a YouTube redesign. YouTube ships UI changes constantly, and when a selector stops matching, the blur silently stops applying. If you notice that, [open an issue](https://github.com/malvinjauhari/YT-Focus/issues) with the page URL — even if you don't intend to fix it yourself.
 
 Other welcome contributions:
 
@@ -32,8 +32,8 @@ Other welcome contributions:
 ## Local Setup
 
 ```bash
-git clone https://github.com/malvinjauhari/No-More-Distract.git
-cd No-More-Distract
+git clone https://github.com/malvinjauhari/YT-Focus.git
+cd YT-Focus
 ```
 
 There is nothing to install. No `npm install`, no bundler, no linter config to satisfy. If you find yourself adding a dependency, pause — that is almost certainly the wrong move for this project.

@@ -24,7 +24,7 @@
 
 A browser extension that blurs out YouTube's two biggest attention traps — the **comment section** and the **recommendation rail** — so the video becomes the only thing on screen. No accounts, no tracking, no build step.
 
-**Repository:** [`malvinjauhari/No-More-Distract`](https://github.com/malvinjauhari/No-More-Distract)
+**Repository:** [`malvinjauhari/YT-Focus`](https://github.com/malvinjauhari/YT-Focus)
 
 ---
 
@@ -74,7 +74,7 @@ YTFocus is loaded as an unpacked extension — there is no build step and no `no
 **Requirements:** Chrome, Edge, or Brave **88+** (or any Chromium browser with Manifest V3 support).
 
 ```bash
-git clone https://github.com/malvinjauhari/No-More-Distract.git
+git clone https://github.com/malvinjauhari/YT-Focus.git
 ```
 
 Then:
@@ -82,12 +82,12 @@ Then:
 1. Open `chrome://extensions` in your browser.
 2. Turn on **Developer mode** (top-right toggle).
 3. Click **Load unpacked**.
-4. Select the cloned folder (`No-More-Distract`).
+4. Select the cloned folder (`YT-Focus`).
 5. **Reload** any YouTube tab that's already open.
 
 That's it. Pin YTFocus to your toolbar, click the icon, and flip the toggles.
 
-> **Note:** Loading unpacked requires Developer mode to stay enabled. If you plan to use YTFocus daily, say the word in [Discussions](https://github.com/malvinjauhari/No-More-Distract/discussions) — a Web Store release would remove that requirement.
+> **Note:** Loading unpacked requires Developer mode to stay enabled. If you plan to use YTFocus daily, [open an issue](https://github.com/malvinjauhari/YT-Focus/issues) asking for a Web Store release — that would remove this requirement.
 
 ## How It Works
 
@@ -138,7 +138,7 @@ When the popup opens, it `PING`s the active tab. If no content script answers �
 ## Project Structure
 
 ```
-No-More-Distract/
+YT-Focus/
 ├── manifest.json          # Manifest V3: permissions, content script registration, icons
 ├── content.js             # Runs in every YouTube tab — injects CSS, toggles classes, syncs settings
 ├── popup.html             # Toolbar popup markup (two toggles)
@@ -192,8 +192,8 @@ Stored in `chrome.storage.local` under these keys. Both default to `true`, so YT
 There's no package manager, bundler, or framework. The source you read is the source the browser runs.
 
 ```bash
-git clone https://github.com/malvinjauhari/No-More-Distract.git
-cd No-More-Distract
+git clone https://github.com/malvinjauhari/YT-Focus.git
+cd YT-Focus
 ```
 
 Your edit-refresh loop:
@@ -211,7 +211,7 @@ See [CONTRIBUTING.md](./CONTRIBUTING.md) for commit conventions, PR process, and
 Make sure the toggle in the popup is on. If you just installed YTFocus, hard-refresh the YouTube tab — tabs open before installation run the old page. If it still doesn't work, open DevTools → Console and check that the `<html>` element carries `ytf-blur-comments`.
 
 **The blur disappeared after navigating.**
-YouTube sometimes rewrites its root classes. YTFocus's `MutationObserver` normally repairs this within a frame — if a specific page still fails, [open an issue](https://github.com/malvinjauhari/No-More-Distract/issues) with the page URL.
+YouTube sometimes rewrites its root classes. YTFocus's `MutationObserver` normally repairs this within a frame — if a specific page still fails, [open an issue](https://github.com/malvinjauhari/YT-Focus/issues) with the page URL.
 
 **The comments are still clickable / selectable.**
 They shouldn't be — the CSS sets `pointer-events: none` and `user-select: none`. If a selector stopped matching, it's a YouTube redesign. Contributions to fix that are very welcome.
